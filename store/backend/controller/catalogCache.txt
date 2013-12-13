@@ -1,0 +1,671 @@
+RestRequest Object
+(
+    [url:protected] => https://apisandbox-api.zuora.com/rest/v1/catalog/products
+    [verb:protected] => GET
+    [requestBody:protected] => 
+    [requestLength:protected] => 0
+    [username:protected] => 
+    [password:protected] => 
+    [acceptType:protected] => application/json
+    [responseBody:protected] => {
+  "products" : [ {
+    "id" : "2c92c0f941a5f15d0141b54322be49f7",
+    "sku" : "SKU-00000008",
+    "name" : "sa_exercise",
+    "description" : "product catalog for SA",
+    "productRatePlans" : [ {
+      "id" : "2c92c0f941a5f16e0141b54d97dd6aa3",
+      "status" : "Active",
+      "name" : "Gold Plan",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-13",
+      "effectiveEndDate" : "2015-10-13",
+      "Grade__c" : "N/A ",
+      "State__c" : "N/A ",
+      "SubjectArea__c" : "N/A",
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f941a5f14b0141b550d9273c06",
+        "name" : "Usage Charge",
+        "type" : "Usage",
+        "model" : "Overage",
+        "pricingSummary" : [ "Free for first 20 Each, thereafter USD0.5/Each" ],
+        "billingDay" : "DefaultFromCustomer",
+        "billingPeriod" : "Month",
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f841a5e7d00141b5504157767e",
+        "name" : "Recurring Charge",
+        "type" : "Recurring",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD20" ],
+        "billingDay" : "DefaultFromCustomer",
+        "billingPeriod" : "Month",
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f941a5f15d0141b54f5f284eaf",
+        "name" : "One TIme Charge",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD5" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    }, {
+      "id" : "2c92c0f941a5f14b0141b5485b083891",
+      "status" : "Active",
+      "name" : "Silver Plan",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-13",
+      "effectiveEndDate" : "2015-10-13",
+      "Grade__c" : "N/A ",
+      "State__c" : "N/A ",
+      "SubjectArea__c" : "N/A",
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f941a5f14b0141b54ccc033a2e",
+        "name" : "Usage Charge",
+        "type" : "Usage",
+        "model" : "Overage",
+        "pricingSummary" : [ "Free for first 10 Each, thereafter USD1/Each" ],
+        "billingDay" : "DefaultFromCustomer",
+        "billingPeriod" : "Month",
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f941a5f16e0141b5493e4f66b8",
+        "name" : "Recurring Charge",
+        "type" : "Recurring",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD10" ],
+        "billingDay" : "DefaultFromCustomer",
+        "billingPeriod" : "Month",
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    } ]
+  }, {
+    "id" : "2c92c0f84158acf601419e83235a179d",
+    "sku" : "SKU-00000005",
+    "name" : "Study Island",
+    "description" : "Study Island for Edmentum",
+    "productRatePlans" : [ {
+      "id" : "2c92c0f94158b2c20141a424e50d12e3",
+      "status" : "Active",
+      "name" : "Study Island Alaska 3rd Grade Reading",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-09",
+      "effectiveEndDate" : "2018-10-09",
+      "Grade__c" : "3rd Grade",
+      "State__c" : "AK",
+      "SubjectArea__c" : "Reading",
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f94158b2c20141a424e51c12e5",
+        "name" : "76 - 125 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD449" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141a424e53b12ec",
+        "name" : "11 - 30 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD171" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141a424e55a12f3",
+        "name" : "201 - 400 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD1140" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141a424e58512fa",
+        "name" : "> 400 Students",
+        "type" : "OneTime",
+        "model" : "Tiered",
+        "pricingSummary" : [ "0 to 399 Each: USD0/Each;  400 Each or more: USD2.85/Each" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141a424e5ba1306",
+        "name" : "31 - 50 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD257" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141a424e5dc130d",
+        "name" : "126 - 200 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD684" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141a424e6011314",
+        "name" : "1 - 10 Students",
+        "type" : "OneTime",
+        "model" : "Tiered",
+        "pricingSummary" : [ "1 to 10 Each: USD25/Each" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141a424e62f131b",
+        "name" : "51 - 75 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD342" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    }, {
+      "id" : "2c92c0f94158b2b30141a4202af11fdc",
+      "status" : "Active",
+      "name" : "Study Island Alaska 5th Grade Reading",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-09",
+      "effectiveEndDate" : "2018-10-09",
+      "Grade__c" : "5th Grade",
+      "State__c" : "AK",
+      "SubjectArea__c" : "Reading",
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f94158b2b30141a4202bf02014",
+        "name" : "51 - 75 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD342" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a4202ba72006",
+        "name" : "126 - 200 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD684" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a4202b871fff",
+        "name" : "31 - 50 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD257" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a4202b5f1ff3",
+        "name" : "> 400 Students",
+        "type" : "OneTime",
+        "model" : "Tiered",
+        "pricingSummary" : [ "0 to 399 Each: USD0/Each;  400 Each or more: USD2.85/Each" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a4202b3a1fec",
+        "name" : "201 - 400 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD1140" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a4202b1c1fe5",
+        "name" : "11 - 30 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD171" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a4202aff1fde",
+        "name" : "76 - 125 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD449" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a4202bc9200d",
+        "name" : "1 - 10 Students",
+        "type" : "OneTime",
+        "model" : "Tiered",
+        "pricingSummary" : [ "1 to 10 Each: USD25/Each" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    }, {
+      "id" : "2c92c0f94158b2b30141a41fa4091eec",
+      "status" : "Active",
+      "name" : "Study Island Alabama 5th Grade Reading",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-09",
+      "effectiveEndDate" : "2018-10-09",
+      "Grade__c" : "5th Grade",
+      "State__c" : "AL",
+      "SubjectArea__c" : "Reading",
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f94158b2b30141a41fa4181eee",
+        "name" : "76 - 125 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD434" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41fa4381ef5",
+        "name" : "11 - 30 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD149" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41fa4711efc",
+        "name" : "201 - 400 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD992" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41fa4a01f03",
+        "name" : "> 400 Students",
+        "type" : "OneTime",
+        "model" : "Tiered",
+        "pricingSummary" : [ "0 to 399 Each: USD0/Each;  400 Each or more: USD2.5/Each" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41fa4c91f0f",
+        "name" : "31 - 50 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD223" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41fa4f31f16",
+        "name" : "126 - 200 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD595" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41fa52a1f21",
+        "name" : "1 - 10 Students",
+        "type" : "OneTime",
+        "model" : "Tiered",
+        "pricingSummary" : [ "1 to 10 Each: USD25/Each" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41fa5501f2a",
+        "name" : "51 - 75 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD298" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    }, {
+      "id" : "2c92c0f94158b2d301419e90d98f1d77",
+      "status" : "Active",
+      "name" : "Study Island Alabama 3rd Grade Reading",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-09",
+      "effectiveEndDate" : "2018-10-09",
+      "Grade__c" : "3rd Grade",
+      "State__c" : "AL",
+      "SubjectArea__c" : "Reading",
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f94158b2c201419e938bb32ba4",
+        "name" : "1 - 10 Students",
+        "type" : "OneTime",
+        "model" : "Tiered",
+        "pricingSummary" : [ "1 to 10 Each: USD25/Each" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f84158acf60141a41e8bec6772",
+        "name" : "> 400 Students",
+        "type" : "OneTime",
+        "model" : "Tiered",
+        "pricingSummary" : [ "0 to 399 Each: USD0/Each;  400 Each or more: USD2.5/Each" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f84158ace00141a41d844a47c6",
+        "name" : "201 - 400 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD992" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41d0d981cf8",
+        "name" : "126 - 200 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD595" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f84158acd10141a41c29ae5d06",
+        "name" : "76 - 125 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD434" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141a41bb8b804e7",
+        "name" : "51 - 75 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD298" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2b30141a41b428b1b20",
+        "name" : "31 - 50 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD223" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f84158ace00141a41ab2fe4646",
+        "name" : "11 - 30 Students",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD149" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    } ]
+  }, {
+    "id" : "2c92c0f94158b2c201419fcd82d454a7",
+    "sku" : "SKU-00000006",
+    "name" : "Study Island test",
+    "description" : "",
+    "productRatePlans" : [ {
+      "id" : "2c92c0f94158b2b301419fcdf9f473fb",
+      "status" : "Active",
+      "name" : "test rate plan",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-09",
+      "effectiveEndDate" : "2015-10-10",
+      "Grade__c" : "N/A ",
+      "State__c" : "N/A ",
+      "SubjectArea__c" : "N/A",
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f94158b2b301419fce3a657404",
+        "name" : "New Component",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD10" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    } ]
+  }, {
+    "id" : "2c92c0f94158b2b30141950b18ea7da2",
+    "sku" : "SKU-00000003",
+    "name" : "Vegatables",
+    "description" : "",
+    "productRatePlans" : [ {
+      "id" : "2c92c0f94158b2b301419519803b0147",
+      "status" : "Expired",
+      "name" : "celery",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-07",
+      "effectiveEndDate" : "2013-10-28",
+      "Grade__c" : null,
+      "State__c" : null,
+      "SubjectArea__c" : null,
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f84158acf60141951ae13327f1",
+        "name" : "monthly fee",
+        "type" : "Recurring",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD10" ],
+        "billingDay" : "DefaultFromCustomer",
+        "billingPeriod" : "Month",
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2c20141951a4cb1323f",
+        "name" : "Start up fee",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD1" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    } ]
+  }, {
+    "id" : "2c92c0f84158acf6014194f8efba20fa",
+    "sku" : "SKU-00000001",
+    "name" : "Fruit",
+    "description" : "",
+    "productRatePlans" : [ {
+      "id" : "2c92c0f84158ace0014195094be63e90",
+      "status" : "Expired",
+      "name" : "Apple",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-07",
+      "effectiveEndDate" : "2013-10-28",
+      "Grade__c" : null,
+      "State__c" : null,
+      "SubjectArea__c" : null,
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f84158acf60141950aaad62476",
+        "name" : "monthly fee",
+        "type" : "Recurring",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD100" ],
+        "billingDay" : "DefaultFromCustomer",
+        "billingPeriod" : "Month",
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f94158b2d3014195099fcf4ab8",
+        "name" : "start up fee",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD1" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    }, {
+      "id" : "2c92c0f84158ace0014194fa02673bf6",
+      "status" : "Expired",
+      "name" : "oranges",
+      "description" : "",
+      "effectiveStartDate" : "2013-10-07",
+      "effectiveEndDate" : "2013-10-28",
+      "Grade__c" : null,
+      "State__c" : null,
+      "SubjectArea__c" : null,
+      "productRatePlanCharges" : [ {
+        "id" : "2c92c0f94158b2b3014195023cd67a22",
+        "name" : "monthly fee",
+        "type" : "Recurring",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD10" ],
+        "billingDay" : "DefaultFromCustomer",
+        "billingPeriod" : "Month",
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      }, {
+        "id" : "2c92c0f84158acf6014194fe0ee8222f",
+        "name" : "start up fee",
+        "type" : "OneTime",
+        "model" : "FlatFee",
+        "pricingSummary" : [ "USD1" ],
+        "billingDay" : null,
+        "billingPeriod" : null,
+        "taxable" : false,
+        "taxCode" : "",
+        "taxMode" : "TaxExclusive"
+      } ]
+    } ]
+  } ],
+  "success" : true
+}
+    [responseInfo:protected] => Array
+        (
+            [url] => https://apisandbox-api.zuora.com/rest/v1/catalog/products
+            [content_type] => application/json;charset=utf-8
+            [http_code] => 200
+            [header_size] => 404
+            [request_size] => 168
+            [filetime] => -1
+            [ssl_verify_result] => 0
+            [redirect_count] => 0
+            [total_time] => 0.997095
+            [namelookup_time] => 0.000375
+            [connect_time] => 0.025518
+            [pretransfer_time] => 0.129075
+            [size_upload] => 0
+            [size_download] => 20060
+            [speed_download] => 20118
+            [speed_upload] => 0
+            [download_content_length] => -1
+            [upload_content_length] => 0
+            [starttransfer_time] => 0.920859
+            [redirect_time] => 0
+            [redirect_url] => 
+            [primary_ip] => 64.79.155.65
+            [certinfo] => Array
+                (
+                )
+
+            [primary_port] => 443
+            [local_ip] => 172.16.2.102
+            [local_port] => 63573
+        )
+
+)

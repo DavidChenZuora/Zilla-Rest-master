@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link href="css/structure.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js" /></script>
+<script type="application/javascript" >
+	
+	$(document).ready(function(){
+		$("#loading").hide();
+		$("#refresh_button").click(function(){
+			refreshCatalog();
+		});
+	});
+
+	var refreshCatalog = function(){
+		$("#loading").fadeIn('slow');
+		$.getJSON("backend/index.php?type=RefreshCatalog",
+			function(data){
+				if(!data.success) {	addError(data); }
+				else { 
+					$("#loading").fadeOut('slow');
+					showResults(data); 
+				}
+        	}
+		);	
+	}
+	
+	var showResults = function(msg){	//msg coming in from data outputted from index.php?=RefreshCatalog
+		html = "";
+		html += "<br>";
+		html += "=========<br>";
+		html += "=SUCCESS=<br>";
+		html += "=========<br>";
+
+		for(var i in msg.products){
+			var product = msg.products[i];
+				html += "-> "+product.name+"<br>";
+				for(var k in product.productRatePlans){
+					var rp = product.productRatePlans[k];
+					html+= "---> "+ rp.name+"<br>";
+					for(var l in rp.productRatePlanCharges){
+						var c = rp.productRatePlanCharges[l];
+						html+= "-----> " + c.name+"<br>";
+					}
+				}
+		}
+
+		/*
+
+		for(var i in msg){
+			var g = msg[i];	//each g is an object of msg[i].
+			html+=g.name+"<br>";
+			for(var j in g.products){
+				var p = g.products[j];
+				html+= "-> "+p.name+"<br>";
+				for(var k in p.productRatePlans){
+					var rp = p.productRatePlans[k];
+					html+= "---> "+ rp.name+"<br>";
+					for(var l in rp.productRatePlanCharges){
+						var c = rp.productRatePlanCharges[l];
+						html+= "-----> " + c.name+"<br>";
+					}
+				}
+			}
+		}
+		*/
+		html += "<br>=======<br>";
+		$("#result_panel").html(html);
+	}
+
+	var addError = function(emsg){
+		$("#infor").append(emsg);
+		$("#infor").show();
+	};
+	
+</script>
+<body>
+<div id="web_main">
+  <div id="top">
+    <h1 id="logo"><a href="index.html"><img src="images/logo_zuora.png" alt="Zuora"></a></h1>
+    <div id="loading"> loading... </div>
+  </div>
+  <div id="main" class="edit_dv">
+    <div id="left-main">
+      <div class="left-main inner">
+        <div class="title">
+          <h3><a href="javascript:" id='refresh_button' class="btn_submit item_button floatLeft" >Refresh Catalog</a></h3>
+           <div id='result_panel'/>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="clear-block"></div>
+</div>
+</body>
+</html>
