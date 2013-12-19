@@ -13,12 +13,13 @@
 		$("#infor").hide();
 		$("#loading").show();
 		
-		//getInitialCart();
+		getInitialCart();
 		
 		$.getJSON("backend/index.php?type=ReadCatalog",
 			function(data){
 				if(!data.success) {	addError(data.msg); }
-				else { listProducts(data.msg); }
+				//else { listProducts(data.msg); }
+				else { listProducts(data); }
         	}
 		);
 		$("#remove_all_button").click(function(){
@@ -36,7 +37,8 @@
 	var emptyCart = function(){
 		$.getJSON("backend/index.php?type=EmptyCart",
 			function(data){
-				refreshCart(data.msg);
+				//refreshCart(data.msg);
+				refreshCart(data);
         	}
 		);
 	}
@@ -44,8 +46,10 @@
 	var getInitialCart = function(){
 		$.getJSON("backend/index.php?type=GetInitialCart",
 			function(data){
-				if(!data.success) {	addError(data.msg); }
-				else { refreshCart(data.msg); }
+				// if(!data.success) {	addError(data.msg); }
+				// else { refreshCart(data.msg); }
+				if(!data.success) {	addError(data); }
+				else { refreshCart(data); }
         	}
 		);
 	}
@@ -90,18 +94,24 @@
 	};
 
 	var addToCart = function(event){
-		var rpId = event.target.getAttribute('id');
+		var rpId = event.target.getAttribute('id');	//??????
 		var rpQtyField = $('#qty_'+rpId);
 		var rpQty = null;
 		if(rpQtyField.size()>0)
 			rpQty = rpQtyField.val();
 		$.getJSON("backend/index.php?type=AddItemToCart", {ratePlanId:rpId, quantity:rpQty},
 			function(data){
+				// if(!data.success) {
+				// 	addError(data.msg);
+				// }
+				// else {
+				// 	refreshCart(data.msg);
+				// }
 				if(!data.success) {
-					addError(data.msg);
+					addError(data);
 				}
 				else {
-					refreshCart(data.msg);
+					refreshCart(data);
 				}
         	}
 		);
@@ -112,11 +122,13 @@
 
 		var html = "";
 		for(var pgroupKey in data){
-			var pgroup = data[pgroupKey];
+			//var pgroup = data[pgroupKey];
 			html += "<div class='panel-section'>";
-			html += " <h4 style='margin:15px 0 5px 0'>"+pgroup.name+"</h4>";
+			// html += " <h4 style='margin:15px 0 5px 0'>"+pgroup.name+"</h4>";
+			 html += " <h4 style='margin:15px 0 5px 0'>"+"</h4>";
 			html += " <ul class='list_dv'>";
-			var products = pgroup.products;
+			//var products = pgroup.products;
+			var products = data.products;
 			for(var prodKey in products){
 				var prod = products[prodKey];
 				html += "<li> <span class='clear-block'></span>";
@@ -132,11 +144,11 @@
 					html += "          <div class='rateplan_info' >";
 					html += "           <span class='rateplan_name'>"+rp.name+" : "+rp.name+"</span><br>";
 					html += "          	<span class='rateplan_description'>"+rp.description+"</span> ";
-					if(rp.quantifiable)
-						html += "		<br># "+ rp.status +": <input type='text' class='w80' id='qty_"+rp.id+"' value='1' onkeypress='return isNumberKey(event)' />";
+					//if(rp.quantifiable)
+						// html += "		<br># "+ rp.status +": <input type='text' class='w80' id='qty_"+rp.id+"' value='1' onkeypress='return isNumberKey(event)' />";
 					html += "          </div>";
 					html += "          <div class='item_button_block'>";
-					html += "           <a href='javascript:' class='btn_submit item_button btn_add' id='"+rp.Id+"' >Add</a>";
+					html += "           <a href='javascript:' class='btn_submit item_button btn_add' id='"+rp.id+"' >Add</a>";
 					html += "          </div>";
 					html += "          <div class='clear-block'></div>";
 					html += "        </li>";

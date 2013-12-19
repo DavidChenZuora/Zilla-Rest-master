@@ -8,11 +8,11 @@ class RestRequest
 	protected $verb;
 	protected $requestBody;
 	protected $requestLength;
-	protected $username;
-	protected $password;
 	protected $acceptType;
 	public $responseBody;
 	protected $responseInfo;
+	protected $username;
+	protected $password;
 
 	public function __construct ($url = null, $verb = 'GET', $requestBody = null)
 	{
@@ -30,6 +30,42 @@ class RestRequest
 		{
 			$this->buildPostBody();
 		}
+	}
+
+	//Getters
+	public function getUrl ()
+	{
+		return $url;
+	}
+	
+	public function getVerb ()
+	{
+		return $verb;
+	}
+	
+	public function getRequestBody ()
+	{
+		return $requestBody;
+	}
+	
+	public function getRequestLength ()
+	{
+		return $requestLength;
+	}
+	
+	public function getacceptType ()
+	{
+		return $acceptType;
+	}
+	
+	public function getResponseBody ()
+	{
+		return $responseBody;
+	}
+
+	public function getResponseInfo ()
+	{
+		return $responseInfo;
 	}
 
 	public function flush ()
@@ -95,7 +131,8 @@ class RestRequest
 	protected function executeGet ($ch)
 	{
 		curl_setopt($ch, CURLOPT_HTTPGET, true);
-
+		//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		//curl_setopt($ch, CURLOPT_HEADER, false);
 		$this->doExecute($ch);
 	}
 

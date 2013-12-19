@@ -7,17 +7,20 @@
  * V1.05
  */
 
-/*
-function __autoload($class){
-  @include('./model/' . $class . '.php');
-  @include('./controller/' . $class . '.php');
-  @include('./sfdc/' . $class . '.php');
-}
-*/
 
-include ('./catalog.php');
+// function __autoload($class){
+//   @include('./model/' . $class . '.php');
+//   @include('./controller/' . $class . '.php');
+//   @include('./sfdc/' . $class . '.php');
+// }
+
+
+
 include('./config.php');
+
 include('./RestRequest.php');
+
+include('./Cart.php');	//Something wrong here
 
 session_start();
 
@@ -27,8 +30,8 @@ $errors = array();
 $messages = null;
 //debug($client->__getFunctions());
 
-
 $type = isset($_REQUEST['type']) ? $_REQUEST['type'] : '';
+
 dispatcher($type);
 
 function addErrors($field,$msg){
@@ -38,23 +41,107 @@ function addErrors($field,$msg){
 	$errors[] = $error;
 }
 function dispatcher($type){
+
 	switch($type) {
+
 		case 'RefreshCatalog' :
 			refreshCatalog();
 		break;
 		case 'ReadCatalog' : 
 			readCatalog();
 		break;
+		case 'EmptyCart' : emptyCart();
+		break;
+		case 'GetInitialCart' : getInitialCart();
+		break;
+		case 'AddItemToCart' : addItemToCart();
+		break;
+		case 'RemoveItemFromCart' : removeItemFromCart();
+		break;
 		default:
 			addErrors(null,'no action specified');
 	}
 }
 
-function refreshCatalog(){
+function emptyCart(){
 	global $messages;
 	
-	//$refreshResult = Catalog::refreshCache();
+	$_SESSION['cart'] = new Cart();
+	echo "Hello emptyCart!, session created";
+	$messages = $_SESSION['cart'];
+}
 
+function getInitialCart(){
+	global $messages;
+	echo "Hello getInitialCart!1";
+	//session_unset(); //resets session variables.
+	if(!isset($_SESSION['cart'])){
+		echo "Hello getInitialCart!2";
+		emptyCart();
+	}
+	
+	$messages = $_SESSION['cart'];
+}
+
+function addItemToCart(){
+
+	echo "hello! AddItemToCart button has been clicked!";
+	global $messages;
+	if(!isset($_SESSION['cart'])){
+		emptyCart();
+	}
+	
+	$ratePlanId = $_REQUEST['ratePlanId'];
+	//$ratePlanId = "2c92c0f941a5f16e0141b54d97dd6aa3";
+	$quantity = 1;
+	// if(isset($_REQUEST['quantity']))	//quantity is always 1 for testing purposes.
+	// 	$quantity = $_REQUEST['quantity'];
+	error_log('ratePlanId is:' . $ratePlanId, 0) ;
+	
+	echo "ratePlanId is: " . $ratePlanId;
+	echo "quantity is: " . $quantity;
+
+	if(isset($_SESSION['cart'])){
+		$_SESSION['cart']->addCartItem($ratePlanId, $quantity);
+
+	} else {
+		addErrors(null,'Cart has not been set up.');
+		return;	
+	}
+	error_log('SESSION variable is: ' . print_r($_SESSION['cart'], true), 0);
+	$messages = $_SESSION['cart'];
+}
+
+function removeItemFromCart(){
+	global $messages;
+
+	$itemId;
+	if(isset($_REQUEST['itemId'])){
+		$itemId = $_REQUEST['itemId'];
+	} else {
+		addErrors(null,'Item Id not specified.');
+		return;		
+	}
+
+	if(isset($_SESSION['cart'])){
+		$removed = $_SESSION['cart']->removeCartItem($itemId);
+		if(!$removed){
+			addErrors(null,'Item no longer exists.');
+		}
+	} else {
+		addErrors(null,'Cart has not been set up.');
+		return;		
+	}
+
+	$messages = $_SESSION['cart'];
+}
+
+function refreshCatalog(){
+
+	global $messages;
+	//$newCatalog = new Catalog();
+	//$refreshResult = Catalog::refreshCache();
+	//$refreshResult = $newCatalog->refreshCache();
 	
 
 	// Base URL of Zuora REST services (SANDBOX)
@@ -62,34 +149,27 @@ function refreshCatalog(){
 
 	//Product Url
 	$newUrl = $baseUrl . 'catalog/products';
-	// echo "baseurl is  " . $baseUrl;
-	// echo "<br>";
-	// echo "newurl is  " . $newUrl;
-	// echo "<br>";
+	
+
 	$refreshResult = new RestRequest($newUrl, 'GET', null);
+	
 	$refreshResult->execute();
-
-	// echo "<br>";
-	// echo "<br>";
-	// echo "GET Response Body";
-	// echo "<br>";
-	// echo "<pre>" . print_r($refreshResult, true) . "</pre>";	//<pre> creates the indents for the output.
-
+	
+	
 	echo print_r($refreshResult->responseBody, true);	//We only want the body of the HTTP response.
-														//Otherwise was will get the entire "response" object with headers and body.
-	//echo json_encode($refreshResult);
-	//echo json_encode($refreshResult->responseBody);
-	//Cache product list
+													//Otherwise was will get the entire "response" object with headers and body.
+	
 		//$myFile = $cachePath;
 		$myFile = "catalogCache.txt";
 		$fh = fopen($myFile, 'w') or die("can't open file");
 		fwrite($fh, print_r($refreshResult->responseBody, true));
+		//fwrite($fh, print_r($refreshResult, true));
 		//fwrite($fh, $catalogJson);
 		fclose($fh);
 
-	
+	//$messages = $catalogJson;
 	$messages = $refreshResult;
-	//echo "Refresh result is: " . $refreshResult;
+	
 }
 
 function readCatalog(){
